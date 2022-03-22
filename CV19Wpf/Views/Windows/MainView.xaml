@@ -5,10 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CV19Wpf.View.Windows"
         xmlns:VM="clr-namespace:CV19Wpf.ViewModels"
+        xmlns:cmd="clr-namespace:CV19Wpf.Infrastructure.Commands"
         Title="{Binding WndTitle}" Height="450" Width="800">
     <Window.DataContext>
         <VM:MainView />
     </Window.DataContext>
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommandStaticWnd"    />
+    </Window.Resources>
+    
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -26,6 +32,12 @@
             <MenuItem Header="File">
                 <MenuItem Header="Open"/>
                 <MenuItem Header="Exit" Command="{Binding CloseApplicationCommand}" />
+                <MenuItem Header="Exit st res" Command="{StaticResource CloseApplicationCommandStaticWnd}" />
+                <MenuItem Header="Exit file">
+                    <MenuItem.Command>
+                        <cmd:CloseApplicationCommand />
+                    </MenuItem.Command>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Help" />
         </Menu>
@@ -38,7 +50,20 @@
         
         <TabControl Grid.Row="2" Grid.Column="1">
             <TabItem Header="Main" />
-
+            <TabItem Header="Primitives">
+                <Grid>
+                    <Ellipse Fill="Red" Stroke="Blue" StrokeThickness="3">
+                        <Ellipse.InputBindings>
+                            <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding CloseApplicationCommand}"/>
+                            <KeyBinding Key="Q" Modifiers="Ctrl" >
+                                <KeyBinding.Command>
+                                    <cmd:CloseApplicationCommand />
+                                </KeyBinding.Command>
+                            </KeyBinding>
+                        </Ellipse.InputBindings>
+                    </Ellipse>
+                </Grid>
+            </TabItem>
         </TabControl>
 
         
