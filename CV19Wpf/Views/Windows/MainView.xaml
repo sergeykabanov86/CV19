@@ -25,7 +25,7 @@
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <MenuItem Header="File">
                 <MenuItem Header="Open"/>
-                <MenuItem Header="Exit" Command="Close" />
+                <MenuItem Header="Exit" Command="{Binding CloseApplicationCommand}" />
             </MenuItem>
             <MenuItem Header="Help" />
         </Menu>
@@ -38,6 +38,7 @@
         
         <TabControl Grid.Row="2" Grid.Column="1">
             <TabItem Header="Main" />
+
         </TabControl>
 
         

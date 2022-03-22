@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using CV19Wpf.Infrastructure.Commands;
 using CV19Wpf.ViewModels.Base;
 
 namespace CV19Wpf.ViewModels
@@ -36,7 +36,18 @@ namespace CV19Wpf.ViewModels
 
         #region Commands
 
+        #region CloseApplicationCommand
+        public ICommand CloseApplicationCommand { get; }
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
 
+        private bool CanCloseApplicationCommandExectue(object p)
+        {
+            return true;
+        } 
+        #endregion
 
 
         #endregion Commands
@@ -48,6 +59,11 @@ namespace CV19Wpf.ViewModels
         public MainView()
         {
             ChangeTitle("new CV19 Window Title");
+
+            #region CommandsInit
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExectue);
+
+            #endregion
         }
 
         private void ChangeTitle(string newTitle) { WndTitle = newTitle; }
