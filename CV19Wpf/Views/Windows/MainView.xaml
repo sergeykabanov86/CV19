@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CV19Wpf.View.Windows"
         xmlns:VM="clr-namespace:CV19Wpf.ViewModels"
-        Title="{Binding Title}" Height="450" Width="800">
+        Title="{Binding WndTitle}" Height="450" Width="800">
     <Window.DataContext>
         <VM:MainView />
     </Window.DataContext>
@@ -25,9 +25,26 @@
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <MenuItem Header="File">
                 <MenuItem Header="Open"/>
+                <MenuItem Header="Exit" Command="Close" />
             </MenuItem>
             <MenuItem Header="Help" />
         </Menu>
 
+        <ToolBar Grid.Row="1" Grid.Column="0"  Grid.ColumnSpan="3" >
+            
+        </ToolBar>
+
+        
+        
+        <TabControl Grid.Row="2" Grid.Column="1">
+            <TabItem Header="Main" />
+        </TabControl>
+
+        
+        
+        <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <TextBlock Text="{Binding Status}" />
+        </StatusBar>
+        
     </Grid>
 </Window>
