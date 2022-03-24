@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using CV19Wpf.Infrastructure.Commands;
-using CV19Wpf.ViewModels.Base;
+using CommonLibrary.Views.Base;
 
 namespace CV19Wpf.ViewModels
 {

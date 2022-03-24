@@ -1,4 +1,4 @@
-﻿using CV19Wpf.Infrastructure.Commands.Base;
+﻿using CommonLibrary.Infrastructure.Command.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

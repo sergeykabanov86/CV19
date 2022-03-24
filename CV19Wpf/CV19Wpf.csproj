@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonLibrary">
+      <HintPath>..\CommonLibrary\bin\Debug\CommonLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Input.Manipulations" />
@@ -61,10 +64,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Infrastructure\Commands\Base\Command.cs" />
     <Compile Include="Infrastructure\Commands\CloseApplicationCommand.cs" />
-    <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
-    <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\Windows\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
