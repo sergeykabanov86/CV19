@@ -5,7 +5,6 @@ namespace CV19Wpf.Infrastructure.Commands
 {
     public class LambdaCommand : Command
     {
-
         private readonly Action<object> _Execute;
         private readonly Func<object, bool> _CanExecute;
 
