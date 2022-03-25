@@ -7,6 +7,7 @@
         xmlns:VM="clr-namespace:CV19Wpf.ViewModels"
         xmlns:cmd="clr-namespace:CV19Wpf.Infrastructure.Commands"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="{Binding WndTitle}" Height="450" Width="800">
     <Window.DataContext>
         <VM:MainView />
