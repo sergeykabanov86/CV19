@@ -4,14 +4,17 @@ using System.Windows;
 using System.Windows.Input;
 using CV19Wpf.Infrastructure.Commands;
 using CommonLibrary.Views.Base;
+using CV19Wpf.Models;
+using System.Collections.Generic;
 
 namespace CV19Wpf.ViewModels
 {
     public class MainView : ViewModel
     {
 
-        #region Properties
 
+
+        #region Properties
 
         #region WndTitle - Window title
         /// <summary>Заголовок окна</summary>
@@ -46,7 +49,7 @@ namespace CV19Wpf.ViewModels
         private bool CanCloseApplicationCommandExectue(object p)
         {
             return true;
-        } 
+        }
         #endregion
 
 
@@ -62,8 +65,17 @@ namespace CV19Wpf.ViewModels
 
             #region CommandsInit
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanCloseApplicationCommandExectue);
-
             #endregion
+
+            var data_points = new List<DataPoint>((int)(360 / 0.1));
+            for (var x = 0d; x <= 360; x += 0.1)
+            {
+                const double to_rad = Math.PI / 180;
+                var y = Math.Sin(x * to_rad);
+
+                data_points.Add(new DataPoint { XValue = x, YValue = y });
+            }
+            TestDataPoint = data_points;
         }
 
         private void ChangeTitle(string newTitle) { WndTitle = newTitle; }
@@ -79,5 +91,12 @@ namespace CV19Wpf.ViewModels
 
         #endregion Methods
 
+
+
+
+        #region TestDataPoints
+        public IEnumerable<DataPoint> TestDataPoint { get; set; }
+
+        #endregion
     }
 }

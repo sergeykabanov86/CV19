@@ -8,6 +8,8 @@
         xmlns:cmd="clr-namespace:CV19Wpf.Infrastructure.Commands"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        
         Title="{Binding WndTitle}" Height="450" Width="800">
     <Window.DataContext>
         <VM:MainView />
@@ -59,8 +61,7 @@
                     </StackPanel>
                 </TabItem.Header>
             </TabItem>
-            
-            
+             
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -81,9 +82,19 @@
                     </Ellipse>
                 </Grid>
             </TabItem>
+
+            <TabItem Header="OxyPlot" >
+                <oxy:Plot>
+                    <oxy:Plot.Axes>
+                        <oxy:LinearAxis Position="Left"/>
+                        <oxy:LinearAxis Position="Bottom"/>
+                    </oxy:Plot.Axes>
+                    <oxy:LineSeries Color="Red" ItemsSource="{Binding TestDataPoint}" DataFieldX="XValue" DataFieldY="YValue"/>
+                </oxy:Plot>
+            </TabItem>
         </TabControl>
 
-
+        
 
         <StatusBar Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <TextBlock Text="{Binding Status}" />
